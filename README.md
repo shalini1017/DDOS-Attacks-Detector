@@ -9,7 +9,7 @@ This is a simple real-time DDOS attack detector application based on Kafka messa
 * Java_1.8
 ## Installation:
 * Cloudera Quickstart VM
-* JDK 1.8
+* JDK 8u201
 * Kafka_2.2.0
 * Zookeeper
 * Eclipse Oxygen (4.7)
