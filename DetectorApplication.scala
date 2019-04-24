@@ -15,10 +15,10 @@ object DetectorApplication {
       val sparkConf = new SparkConf().setAppName("FromKafkatoSparkStreaming").setMaster("local[3]")
       val ssc = new StreamingContext(sparkConf, Seconds(20))
       ssc.checkpoint("checkpoint")      
-      val topic = Array("ApacheLogTopic4")
+      val topic = Array("ApacheLogTopic10")
       
        //setting up kafka parameters    
-      val kafkaParams = Map[String, Object]("bootstrap.servers" -> "localhost:9092",
+      val kafkaParams = Map[String, Object]("bootstrap.servers" -> "localhost:9092,localhost:9093",
                        "key.deserializer" -> classOf[StringDeserializer],
                        "value.deserializer" -> classOf[StringDeserializer],
                        "group.id" -> "test-consumer-group",
@@ -32,12 +32,15 @@ object DetectorApplication {
       val ip = stream.transform{(rdd => rdd.flatMap(record => record.value().split(" ")))}
       val ippairs = ip.map(x => (x, 1))
       val ipCounts = ippairs.reduceByKey(_ + _).filter({case (x,y) => x.matches("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}")})
-      val updated = ipCounts.filter({case(k,v)=> v >= 85})
+      val updated = ipCounts.filter({case(k,v)=> v >= 50})
       
-      updated.print()
+      updated.print()      
+      
+      //val data = rdd.collect().mkString("\n")
+      //println(data)
       
       //saving the output in a text file
-      updated.saveAsTextFiles("file:///home/cloudera/Desktop/DDOS_attack1", "txt") 
+      updated.saveAsTextFiles("file:///home/cloudera/Desktop/DDOS_attack-3", "txt") 
       
       ssc.start()
       ssc.awaitTermination()   
