@@ -1,7 +1,7 @@
 # DDOS Attacks Detector
 This is a simple real-time DDOS attack detector application based on Kafka messaging system and Spark Streaming. In this application Apache access log data is ingested into Kafka broker and the detector application uses the streaming data to perform real-time analysis to find the DDOS attacks.
 ## Prerequisite:
-* kafka_2.11\n
+* kafka_2.2.0
 * spark-streaming-kafka-0-10_2.11
 * spark-core_2.11
 * spark-streaming_2.11
