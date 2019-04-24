@@ -1,5 +1,5 @@
-TopicName=ApacheLogTopic4
-Server=localhost:9092
+TopicName=ApacheLogTopic10
+Server=localhost:9092,localhost:9093
 KeySerializer=org.apache.kafka.common.serialization.StringSerializer
 ValueSerializer=org.apache.kafka.common.serialization.StringSerializer
 MaxRetries=3
