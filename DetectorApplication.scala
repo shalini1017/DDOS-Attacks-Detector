@@ -36,8 +36,6 @@ object DetectorApplication {
       
       updated.print()      
       
-      //val data = rdd.collect().mkString("\n")
-      //println(data)
       
       //saving the output in a text file
       updated.saveAsTextFiles("file:///home/cloudera/Desktop/DDOS_attack-3", "txt") 
