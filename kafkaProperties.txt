@@ -1,7 +1,1 @@
-TopicName=ApacheLogTopic10
-Server=localhost:9092,localhost:9093
-KeySerializer=org.apache.kafka.common.serialization.StringSerializer
-ValueSerializer=org.apache.kafka.common.serialization.StringSerializer
-MaxRetries=3
-FilePath=//home/cloudera/Desktop/
-FileName=apache-access-log.txt
+In case you want to see the code , reach out to me on shalinisharma1017@gmail.com
